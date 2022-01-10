@@ -12,13 +12,13 @@ class Game:
         self.height = height
 
     def make_board(self, p=0.5, random_seed=42):
-        size = (self.width, self.height)
+        size = (self.height, self.width)
         sample = np.random.uniform(low=0, high=1, size=size)
         self._board = np.empty(size, dtype=np.int8)
         self._board[sample <= p] = 0
         self._board[sample > p] = 1
         
-        self._board_next = np.empty(size)
+        self._board_next = np.empty(size, dtype=np.int8)
         
     def render(self):
         print(self._board)
